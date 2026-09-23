@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FX Group LLC | Premium Global B2B Sourcing & Parent Portfolio</title>
+    <title>FX Group LLC | Premium Global B2B Sourcing & Manufacturing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #0d0d0d;
-            --card-bg: #161616;
+            --bg-color: #080808;
+            --card-bg: #121212;
             --border-color: #262626;
             --text-primary: #ffffff;
             --text-secondary: #a1a1aa;
             --accent-blue: #00bcd4;
-            --accent-green: #22c55e;
+            --accent-gold: #d4af37;
             --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
@@ -41,7 +41,7 @@
             border: 1px solid var(--border-color);
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
             display: flex;
             flex-direction: column;
         }
@@ -49,7 +49,7 @@
         /* Standard Header */
         header {
             padding: 20px 24px;
-            background-color: rgba(13, 13, 13, 0.9);
+            background-color: rgba(8, 8, 8, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             display: flex;
@@ -90,33 +90,54 @@
             gap: 20px;
         }
 
-        /* Profile & Leadership */
-        .profile-card {
-            background: var(--card-bg);
+        /* Corporate Intro Card */
+        .corporate-card {
+            background: linear-gradient(145deg, #161616 0%, #0d0d0d 100%);
             border: 1px solid var(--border-color);
             border-radius: 18px;
-            padding: 20px;
+            padding: 24px 20px;
             text-align: center;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
-        .profile-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-blue);
-            margin-bottom: 12px;
+        .corporate-card h1 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
-        .profile-card h1 {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .profile-card p {
+        .corporate-card p {
             font-size: 13px;
             color: var(--text-secondary);
-            margin-top: 2px;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        .founder-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .founder-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-secondary);
+        }
+
+        .founder-link i {
+            color: var(--accent-blue);
+            font-size: 10px;
         }
 
         /* Key Metrics Grid */
@@ -154,7 +175,7 @@
 
         /* Parent Company Banner */
         .parent-banner {
-            background: linear-gradient(135deg, #161616 0%, #222222 100%);
+            background: linear-gradient(135deg, #161616 0%, #1a1a1a 100%);
             border: 1px solid var(--border-color);
             border-radius: 18px;
             padding: 18px;
@@ -195,18 +216,25 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .section-title span {
-            font-size: 12px;
-            color: var(--accent-blue);
-            font-weight: 400;
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: none;
+            background: var(--card-bg);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
         }
 
         .products-grid {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
         }
 
         .product-card {
@@ -214,11 +242,12 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .product-image {
             width: 100%;
-            height: 160px;
+            height: 180px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -226,36 +255,39 @@
 
         .product-tag {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.7);
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(5px);
             color: #fff;
-            padding: 4px 10px;
-            border-radius: 12px;
+            padding: 6px 12px;
+            border-radius: 8px;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid #333;
         }
 
         .product-details {
-            padding: 14px;
+            padding: 16px;
         }
 
         .product-details h3 {
             font-size: 15px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            color: var(--text-primary);
         }
 
         .product-details p {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-secondary);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         /* Executive Contact AI */
         .ai-assistant {
-            background: rgba(0, 188, 212, 0.05);
-            border: 1px solid rgba(0, 188, 212, 0.2);
+            background: rgba(0, 188, 212, 0.03);
+            border: 1px solid rgba(0, 188, 212, 0.15);
             border-radius: 16px;
             padding: 16px;
             display: flex;
@@ -267,13 +299,14 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: var(--accent-blue);
-            color: #000;
+            background: #111;
+            color: var(--accent-blue);
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 20px;
             flex-shrink: 0;
+            border: 1px solid rgba(0, 188, 212, 0.3);
         }
 
         .ai-info h4 {
@@ -288,7 +321,7 @@
 
         /* Standard Footer */
         footer {
-            background-color: #080808;
+            background-color: #050505;
             padding: 24px 20px;
             border-top: 1px solid var(--border-color);
             text-align: center;
@@ -305,9 +338,9 @@
         }
 
         .footer-emails a {
-            color: var(--accent-blue);
+            color: var(--text-primary);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .footer-emails span {
@@ -336,11 +369,13 @@
         </header>
 
         <div class="content">
-            <!-- Executive Profile -->
-            <div class="profile-card">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Fahim Ahammad Mazumder">
-                <h1>Fahim Ahammad Mazumder</h1>
-                <p>Founder & CEO, FX Group LLC</p>
+            <!-- Corporate Overview Card -->
+            <div class="corporate-card">
+                <h1>FX Group LLC</h1>
+                <p>A Premium Global B2B Sourcing, Manufacturing & Export Conglomerate based in Bangladesh.</p>
+                <a href="https://fahimofficial.com" target="_blank" class="founder-link">
+                    Founder: Fahim Ahammad Mazumder <i class="fas fa-external-link-alt"></i>
+                </a>
             </div>
 
             <!-- Key B2B Specifications -->
@@ -362,15 +397,15 @@
                 <div class="spec-item">
                     <i class="fas fa-industry"></i>
                     <div class="spec-text">
-                        <h4>Location</h4>
+                        <h4>Facilities</h4>
                         <p>EPZ & Kalurghat</p>
                     </div>
                 </div>
                 <div class="spec-item">
                     <i class="fas fa-earth-americas"></i>
                     <div class="spec-text">
-                        <h4>Supply Chain</h4>
-                        <p>All-Over World</p>
+                        <h4>Export Market</h4>
+                        <p>Worldwide</p>
                     </div>
                 </div>
             </div>
@@ -387,41 +422,41 @@
             <!-- B2B Products Section -->
             <div>
                 <div class="section-title">
-                    B2B Wholesale Products
-                    <span>Crafted by Bangladesh 🇧🇩</span>
+                    Our Manufacturing Divisions
+                    <span>Crafted in BD 🇧🇩</span>
                 </div>
                 <div class="products-grid">
                     
-                    <!-- FX Jute -->
+                    <!-- FX Jute (Industrial/Fiber Image) -->
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80');">
-                            <span class="product-tag">FX Jute</span>
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80');">
+                            <span class="product-tag">FX Jute Division</span>
                         </div>
                         <div class="product-details">
-                            <h3>Eco-Friendly Jute Goods</h3>
-                            <p>Custom eco-jute bags, packaging, and diversified jute products with customized logo prints & leather patches.</p>
+                            <h3>Industrial Jute & Fiber Products</h3>
+                            <p>Large-scale manufacturing of eco-friendly jute packaging, diversified fibers, custom bags, and industrial textiles.</p>
                         </div>
                     </div>
 
-                    <!-- FX Leather -->
+                    <!-- FX Leather (Crafting/Product Image) -->
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80');">
-                            <span class="product-tag">FX Leather</span>
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1601612450849-0dcb1dcbdb2a?auto=format&fit=crop&w=600&q=80');">
+                            <span class="product-tag">FX Leather Goods</span>
                         </div>
                         <div class="product-details">
-                            <h3>Genuine Leather Goods</h3>
-                            <p>Premium genuine leather jackets, wallets, belts, and accessories. Custom embossed branding available.</p>
+                            <h3>Premium Leather Crafting</h3>
+                            <p>Export-quality genuine leather products including jackets, wallets, belts, and corporate accessories with custom embossing.</p>
                         </div>
                     </div>
 
-                    <!-- FX Handicrafts -->
+                    <!-- FX Handicrafts (Artisanal Image) -->
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1606744888344-493238951221?auto=format&fit=crop&w=600&q=80');">
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1611078833830-5807981f9f21?auto=format&fit=crop&w=600&q=80');">
                             <span class="product-tag">FX Handicrafts</span>
                         </div>
                         <div class="product-details">
-                            <h3>Artisanal Handicrafts</h3>
-                            <p>Handcrafted home decor and lifestyle items made by master artisans from Chittagong, Bangladesh.</p>
+                            <h3>Artisanal Home & Lifestyle</h3>
+                            <p>Ethically handcrafted home decor, woven baskets, and lifestyle items made by master artisans from Chittagong.</p>
                         </div>
                     </div>
 
@@ -434,8 +469,8 @@
                     <i class="fas fa-robot"></i>
                 </div>
                 <div class="ai-info">
-                    <h4>Mrs. Putuli</h4>
-                    <p>Business Manager & AI Assistant</p>
+                    <h4>Mrs. Putuli (AI)</h4>
+                    <p>Automated Business Manager & Sourcing Assistant</p>
                 </div>
             </div>
 
@@ -449,7 +484,7 @@
                 <a href="mailto:b2b@fxgroup.bd">b2b@fxgroup.bd</a>
             </div>
             <div class="location-text">
-                <i class="fas fa-location-dot"></i> EPZ & Kalurghat, Chittagong, Bangladesh
+                <i class="fas fa-location-dot"></i> EPZ & Kalurghat Industrial Area, Chittagong, Bangladesh
             </div>
             <div class="copyright">
                 &copy; 2026 FX Group LLC. All Rights Reserved.
