@@ -3,46 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FX Group LLC | Global Conglomerate</title>
+    <title>FX Group LLC | Global Manufacturing & B2B Solutions</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=style');
 
         :root {
-            --bg-base: #030303;
-            --surface-color: #0d0d0d;
-            --border-color: #1f1f1f;
-            --text-main: #f5f5f5;
-            --text-muted: #888888;
-            --accent-gold: #c5a059;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-dark: #050507;
+            --card-bg: #0d0e12;
+            --border-color: #1e2029;
+            --text-light: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent-gold: #d4af37;
+            --accent-blue: #38bdf8;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar Announcement */
+        .top-bar {
+            background: linear-gradient(90deg, #1e1b4b, #0f172a);
+            color: var(--accent-blue);
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            padding: 8px 15px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         /* Navigation */
         nav {
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
-            padding: 20px 5%;
+            background: rgba(5, 5, 7, 0.85);
+            backdrop-filter: blur(16px);
+            padding: 16px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(3, 3, 3, 0.8);
-            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
         }
@@ -52,7 +64,7 @@
             font-size: 18px;
             font-weight: 700;
             letter-spacing: 2px;
-            color: var(--text-main);
+            color: var(--text-light);
             text-decoration: none;
         }
 
@@ -60,334 +72,540 @@
             color: var(--accent-gold);
         }
 
-        .nav-links a {
-            color: var(--text-muted);
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: 20px;
             text-decoration: none;
             font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             font-weight: 600;
             transition: var(--transition);
         }
 
-        .nav-links a:hover {
-            color: var(--text-main);
+        .nav-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
         }
 
-        /* Hero Section */
+        /* Hero Header */
         .hero {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 120px 5% 60px;
-            background: radial-gradient(circle at 50% 0%, #151515 0%, #030303 70%);
+            padding: 60px 5% 40px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #050507 60%);
         }
 
-        .hero-subtitle {
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             color: var(--accent-gold);
             font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 30px;
             margin-bottom: 20px;
-            font-weight: 600;
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: clamp(40px, 6vw, 80px);
+            font-size: clamp(32px, 5vw, 64px);
             font-weight: 800;
             line-height: 1.1;
-            letter-spacing: -1px;
-            margin-bottom: 30px;
-            max-width: 900px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            color: var(--text-muted);
-            font-size: clamp(16px, 2vw, 20px);
-            max-width: 600px;
-            margin-bottom: 40px;
+            color: var(--text-dim);
+            font-size: clamp(14px, 2vw, 18px);
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
 
-        /* Bento Box Grid */
-        .portfolio-grid {
-            padding: 0 5% 100px;
+        /* Key Highlights Metrics */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .bento-card {
-            background: var(--surface-color);
+        .stat-card {
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
+            padding: 16px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 22px;
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        .stat-card p {
+            font-size: 11px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+
+        /* Products & Industrial Grid */
+        .division-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .division-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
             overflow: hidden;
-            position: relative;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
-        .bento-card:hover {
-            border-color: #333;
+        .division-card:hover {
             transform: translateY(-5px);
+            border-color: #334155;
         }
 
-        .bento-image {
+        .card-img {
+            height: 200px;
             width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
             background-size: cover;
             background-position: center;
-            opacity: 0.4;
-            transition: var(--transition);
-            filter: grayscale(50%);
-        }
-
-        .bento-card:hover .bento-image {
-            opacity: 0.6;
-            filter: grayscale(0%);
-            transform: scale(1.05);
-        }
-
-        .bento-content {
             position: relative;
-            z-index: 10;
-            padding: 40px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
         }
 
-        .bento-tag {
-            align-self: flex-start;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            padding: 6px 14px;
-            border-radius: 30px;
+        .card-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(5, 5, 7, 0.85);
+            backdrop-filter: blur(8px);
+            color: var(--accent-gold);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: auto;
         }
 
-        .bento-card h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .bento-card p {
-            color: var(--text-muted);
-            font-size: 15px;
-        }
-
-        /* Grid Spans */
-        .jute-division { grid-column: span 8; min-height: 450px; }
-        .leather-division { grid-column: span 4; min-height: 450px; }
-        .craft-division { grid-column: span 4; min-height: 400px; }
-        
-        /* Founder & Subsidiary Card */
-        .corporate-division {
-            grid-column: span 8;
-            background: #0a0a0a;
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 40px;
-            border: 1px solid var(--border-color);
+            justify-content: space-between;
         }
 
-        .corporate-division h2 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 24px;
+        .card-body h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card-body p {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .card-list {
+            list-style: none;
             margin-bottom: 20px;
         }
 
-        .links-group {
+        .card-list li {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 6px;
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn {
-            display: inline-flex;
+        .card-list li i {
+            color: #22c55e;
+            font-size: 10px;
+        }
+
+        /* Payment & Sourcing Infrastructure */
+        .infra-box {
+            background: linear-gradient(145deg, #0f172a, #0d0e12);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px 24px;
+            margin-bottom: 50px;
+        }
+
+        .infra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .infra-item h4 {
+            font-size: 16px;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+            display: flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
-            background: var(--text-main);
-            color: var(--bg-base);
-            text-decoration: none;
-            border-radius: 50px;
+        }
+
+        .infra-item p {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        /* Payment Gateway Badges */
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .pay-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 12px;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Subsidiaries & Founder CTA */
+        .corporate-cta {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--text-light);
+            color: var(--bg-dark);
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
             font-size: 14px;
             transition: var(--transition);
         }
 
-        .btn-outline {
+        .btn-primary:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn-secondary {
             background: transparent;
-            color: var(--text-main);
+            color: var(--text-light);
             border: 1px solid var(--border-color);
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-        }
-        
-        .btn-outline:hover {
-            border-color: var(--text-main);
-        }
-
-        /* Global Metrics */
-        .metrics {
-            display: flex;
-            gap: 40px;
-            margin-top: auto;
-            padding-top: 30px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .metric h4 {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--accent-gold);
-        }
-
-        .metric p {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            margin-top: 5px;
+        .btn-secondary:hover {
+            border-color: var(--text-light);
         }
 
         /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
-            padding: 40px 5%;
+            background: #020203;
+            padding: 40px 5% 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 20px;
+            text-align: center;
         }
 
-        .footer-text {
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-
-        .contact-emails a {
-            color: var(--text-main);
+        .footer-links a {
+            color: var(--accent-blue);
             text-decoration: none;
-            margin-left: 20px;
             font-size: 13px;
+            margin: 0 10px;
             font-weight: 600;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .jute-division, .leather-division, .craft-division, .corporate-division {
-                grid-column: span 12;
+        .copy {
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        /* AI Floating Widget */
+        .ai-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(13, 14, 18, 0.9);
+            border: 1px solid var(--accent-gold);
+            backdrop-filter: blur(10px);
+            padding: 10px 16px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .ai-widget i {
+            color: var(--accent-gold);
+        }
+
+        .ai-widget span {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .corporate-cta {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
             }
-            .hero h1 { font-size: 40px; }
+            .cta-buttons {
+                width: auto;
+            }
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <i class="fas fa-shield-halved"></i> Verified B2B Global Supplier | Exporting Worldwide
+    </div>
+
+    <!-- Header Navigation -->
     <nav>
         <a href="#" class="brand-logo">FX GROUP <span>LLC</span></a>
-        <div class="nav-links">
-            <a href="mailto:ceo@fxgroup.bd">Connect</a>
-        </div>
+        <a href="mailto:b2b@fxgroup.bd" class="nav-btn"><i class="fas fa-paper-plane"></i> RFQ Desk</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-subtitle">Global Sourcing & Manufacturing</div>
-        <h1>ENGINEERING GLOBAL SUPPLY CHAINS.</h1>
-        <p>A premier conglomerate headquartered in Bangladesh, driving innovation across industrial manufacturing, premium retail, and global exports.</p>
-    </section>
-
-    <!-- Portfolio Bento Grid -->
-    <section class="portfolio-grid">
+        <div class="hero-badge"><i class="fas fa-crown"></i> Global Sourcing Partner</div>
+        <h1>World-Class Manufacturing & Export Solutions</h1>
+        <p>Leading conglomerate operating state-of-the-art facilities in EPZ & Kalurghat Industrial Zone, Bangladesh.</p>
         
-        <!-- FX Jute -->
-        <div class="bento-card jute-division">
-            <div class="bento-image" style="background-image: url('https://images.unsplash.com/photo-1543419996-3c2fa4b9f2e3?auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="bento-content">
-                <span class="bento-tag">Division 01</span>
-                <h2>FX Jute Industries</h2>
-                <p>Industrial-scale eco-friendly jute manufacturing, customized packaging, and diversified sustainable fibers for the global market.</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>50 PCS</h3>
+                <p>Low MOQ Private Label</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Custom Branding</p>
+            </div>
+            <div class="stat-card">
+                <h3>Global</h3>
+                <p>Door-to-Door Logistics</p>
+            </div>
+            <div class="stat-card">
+                <h3>L/C & TT</h3>
+                <p>Flexible B2B Payment</p>
             </div>
         </div>
-
-        <!-- FX Leather -->
-        <div class="bento-card leather-division">
-            <div class="bento-image" style="background-image: url('https://images.unsplash.com/photo-1557512285-b0728c8b4fa8?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="bento-content">
-                <span class="bento-tag">Division 02</span>
-                <h2>FX Leather</h2>
-                <p>Premium genuine leather crafting. Supplying export-quality jackets, wallets, and corporate accessories.</p>
-            </div>
-        </div>
-
-        <!-- FX Handicrafts -->
-        <div class="bento-card craft-division">
-            <div class="bento-image" style="background-image: url('https://images.unsplash.com/photo-1610423187289-56828ab1ee66?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="bento-content">
-                <span class="bento-tag">Division 03</span>
-                <h2>FX Handicrafts</h2>
-                <p>Ethically sourced and meticulously handcrafted home decor by master artisans of Chittagong.</p>
-            </div>
-        </div>
-
-        <!-- Corporate Info & Subsidiary -->
-        <div class="bento-card corporate-division">
-            <h2>LEADERSHIP & SUBSIDIARIES</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin-bottom: 20px;">
-                Founded by Fahim Ahammad Mazumder, FX Group manages a diverse portfolio including the D2C international clothing brand, Fahix. We specialize in private labeling (MOQ 50 pcs) and worldwide export from our facilities in EPZ & Kalurghat.
-            </p>
-            
-            <div class="metrics">
-                <div class="metric">
-                    <h4>Global</h4>
-                    <p>Export Reach</p>
-                </div>
-                <div class="metric">
-                    <h4>B2B</h4>
-                    <p>Private Labeling</p>
-                </div>
-                <div class="metric">
-                    <h4>Putuli AI</h4>
-                    <p>Automated Systems</p>
-                </div>
-            </div>
-
-            <div class="links-group">
-                <a href="https://fahimofficial.com" target="_blank" class="btn">
-                    Founder Portfolio <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://fahix.com" target="_blank" class="btn btn-outline">
-                    Visit Fahix.com <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
-        </div>
-
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-text">
-            &copy; 2026 FX Group LLC. EPZ & Kalurghat, Chittagong, Bangladesh.
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Divisions Section -->
+        <div class="section-header">
+            <h2>Industrial Manufacturing Divisions</h2>
+            <p>Vertically integrated production facilities for international clients</p>
         </div>
-        <div class="contact-emails">
-            <a href="mailto:ceo@fxgroup.bd">ceo@fxgroup.bd</a>
-            <a href="mailto:b2b@fxgroup.bd">b2b@fxgroup.bd</a>
+
+        <div class="division-grid">
+            
+            <!-- FX Jute Card -->
+            <div class="division-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80');">
+                    <span class="card-tag">Industrial Facility</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3>FX Jute Mills & Fiber Division</h3>
+                        <p>High-volume processing of golden fiber inside factory units for heavy-duty export packaging and eco-friendly textiles.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> Raw Jute Processing & Fiber Spinning</li>
+                            <li><i class="fas fa-check"></i> Heavy Duty Export Jute Bags</li>
+                            <li><i class="fas fa-check"></i> Customized Leather Patch Printing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FX Leather Card -->
+            <div class="division-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80');">
+                    <span class="card-tag">Crafting & Finished Goods</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3>FX Leather Tanneries & Products</h3>
+                        <p>Full-scale genuine leather processing facility delivering luxury jackets, wallets, belts, and bespoke corporate goods.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> Genuine Leather Jacket Manufacturing</li>
+                            <li><i class="fas fa-check"></i> Embossed Logo & Custom Metal Hardware</li>
+                            <li><i class="fas fa-check"></i> Export Quality Finishing & Inspection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FX Handicrafts Card -->
+            <div class="division-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1606744888344-493238951221?auto=format&fit=crop&w=800&q=80');">
+                    <span class="card-tag">Artisanal Production</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3>FX Artisanal Handicrafts Hub</h3>
+                        <p>Combining traditional craftsmanship from Chittagong artisans with industrial Quality Control for global retail markets.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> Woven Home Decor & Seagrass Crafts</li>
+                            <li><i class="fas fa-check"></i> Sustainable Eco-Friendly Lifestyle Ware</li>
+                            <li><i class="fas fa-check"></i> Custom OEM / ODM Packaging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- End-to-End Payment & Logistics Section -->
+        <div class="infra-box">
+            <div class="section-header" style="margin-bottom: 0;">
+                <h2>End-to-End Sourcing & Financial Settlement</h2>
+                <p>Complete security for international B2B buyers from sample to final shipment</p>
+            </div>
+
+            <div class="infra-grid">
+                <div class="infra-item">
+                    <h4><i class="fas fa-credit-card"></i> Accepted B2B Payments</h4>
+                    <p>We support fully compliant global payment methods for smooth cross-border transactions:</p>
+                    <div class="payment-methods">
+                        <div class="pay-badge"><i class="fas fa-university"></i> Bank Wire (T/T)</div>
+                        <div class="pay-badge"><i class="fas fa-file-contract"></i> L/C (Letter of Credit)</div>
+                        <div class="pay-badge"><i class="fab fa-cc-visa"></i> VISA / Mastercard</div>
+                        <div class="pay-badge"><i class="fas fa-globe"></i> SWIFT Transfer</div>
+                    </div>
+                </div>
+
+                <div class="infra-item">
+                    <h4><i class="fas fa-truck-fast"></i> Complete Logistics Pipeline</h4>
+                    <p>From initial sample approval to Port of Chittagong clearance and air/sea freight forwarding directly to your destination port.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Corporate Brand & Leadership Link -->
+        <div class="corporate-cta">
+            <div>
+                <h3 style="font-size: 20px;">Corporate Governance & Portfolio</h3>
+                <p style="color: var(--text-dim); font-size: 13px; margin-top: 4px;">
+                    Parent entity of D2C International Fashion Brand <strong>Fahix</strong>. Founded by <strong>Fahim Ahammad Mazumder</strong>.
+                </p>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://fahimofficial.com" target="_blank" class="btn-primary">
+                    Founder Website <i class="fas fa-external-link-alt" style="font-size: 11px;"></i>
+                </a>
+                <a href="https://fahix.com" target="_blank" class="btn-secondary">
+                    Visit Fahix.com <i class="fas fa-external-link-alt" style="font-size: 11px;"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- AI Assistant Floating Widget -->
+    <div class="ai-widget">
+        <i class="fas fa-robot"></i>
+        <span>Mrs. Putuli (AI Business Manager Active)</span>
+    </div>
+
+    <!-- Global Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="copy">
+                &copy; 2026 FX Group LLC. EPZ & Kalurghat Industrial Area, Chittagong, Bangladesh.
+            </div>
+            <div class="footer-links">
+                <a href="mailto:ceo@fxgroup.bd">ceo@fxgroup.bd</a>
+                <a href="mailto:b2b@fxgroup.bd">b2b@fxgroup.bd</a>
+            </div>
         </div>
     </footer>
 
